@@ -58,6 +58,65 @@ Add this server to your Claude Desktop configuration file:
 
 After adding the configuration, restart Claude Desktop to load the MCP server.
 
+### Claude Code CLI
+
+To add this MCP server to Claude Code CLI:
+
+```bash
+# With node (after build)
+claude mcp add readme-generator --scope user -- node <path-to-project>/build/index.js
+
+# With npx and TypeScript (development mode)
+claude mcp add readme-generator --scope user -- npx -y tsx <path-to-project>/src/index.ts
+```
+
+Replace `<path-to-project>` with the absolute path to this MCP server.
+
+**Scope options:**
+- `--scope user`: Available in all your projects (recommended)
+- `--scope project`: Shared with everyone in the project via `.mcp.json`
+- `--scope local`: Only for the current project
+
+**Useful commands:**
+```bash
+claude mcp list                    # Show all configured servers
+claude mcp remove readme-generator # Remove the server
+/mcp                              # Show server status in Claude Code
+```
+
+### Gemini CLI
+
+To add this MCP server to Gemini CLI, edit the configuration file:
+
+**File location:** `~/.config/gemini/settings.json`
+
+Add the server configuration:
+
+```json
+{
+  "mcpServers": {
+    "readme-generator": {
+      "command": "node",
+      "args": ["<path-to-project>/build/index.js"]
+    }
+  }
+}
+```
+
+Replace `<path-to-project>` with the absolute path to this MCP server.
+
+**Alternative with TypeScript (development mode):**
+```json
+{
+  "mcpServers": {
+    "readme-generator": {
+      "command": "npx",
+      "args": ["-y", "tsx", "<path-to-project>/src/index.ts"]
+    }
+  }
+}
+```
+
 ## 🚀 Usage
 
 ### Available Scripts
