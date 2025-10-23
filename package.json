@@ -1,7 +1,7 @@
 {
-  "name": "mcp",
+  "name": "readmeMcp",
   "version": "1.0.0",
-  "description": "My MCP Server",
+  "description": "Readme Gen MCP",
   "type": "module",
   "main": "./build/index.js",
   "bin": {
